@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR CODE GENRATOR</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px
+        }
+        h1{
+            text-align: center;
+            margin-top: 20px;
+        }
+        body{
+            background-color: rgb(80, 78, 76);
+        }
+        .main{
+            width: 250px;
+            height: 275px;
+            background-color: lightgoldenrodyellow;
+            margin-left: 39.5%;
+            margin-top: 50px;
+            border-radius: 7px;
+        }
+        h4{
+         padding:10px;
+        }
+        #text{
+            margin-top: 5px;
+            margin-left: 10px;
+            width:85%;
+            height: 10%;
+            padding-left: 10px;
+            background-color: transparent;
+          
+          
+           
+            
+        }
+        #btn{
+            margin-top: 10px;
+            text-align: center;
+         padding-top: 8px;
+            height: 26px;
+            width:90%;
+            margin-left: 10px;
+            background-color: rgba(137, 43, 226, 0.68);
+            border-radius: 3px;
+            cursor: pointer ;
+        }
+        
+         #image{
+            width: 50%;
+            padding-left:58px;
+            padding-top: 10px;
+        }
+        #alert{
+            color: red;
+            padding: 10px;
+          
+        }
+    </style>
+</head>
+<body>
+    <h1><i>QR CODE GENRATOR</i></h1>
+<div class="main">
+    <h4>Enter your Text or Url</h4>
+   
+    <label for="text" ></label>
+    <input type="text" placeholder="Text or Url" id="text" autocomplete="off">
+    <span id="alert"></span>
+        <img src="" id="image">
+  
+  
+    <div id="btn">Genrate QR Code</div>
+</div>
+
+<script>
+    let text=document.getElementById("text")
+    let image=document.getElementById("image")
+    let button=document.getElementById("btn")
+    let span=document.getElementById("alert")
+    let copys=document.getElementById("copy")
+    
+ 
+
+    let genrate_code=()=>{
+        if(text.value==""){
+            span.innerHTML="please enter the text or url"
+            image.src=""
+
+           
+        }
+        else{
+        image.src= "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +text.value;
+        span.innerHTML=""
+        }
+            
+ 
+    }
+
+   
+
+    button.addEventListener("click",genrate_code)
+    
+  
+</script>
+</body>
+</html>
